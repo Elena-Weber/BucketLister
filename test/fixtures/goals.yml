@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  details: MyText
+  achieved: false
+  month: 1
+  user: one
+  category: one
+
+two:
+  content: MyString
+  details: MyText
+  achieved: false
+  month: 1
+  user: two
+  category: two
