@@ -1,0 +1,12 @@
+<h1>User: <%= @user.username %></h1>
+<h3>Location: <%= @user.location %></h3>
+
+<h2>User <%= @user.username %> has set these goals:</h2>
+<ul><% @user.goals.each do |goal| %>
+<li><%= link_to goal.content, goal_path(goal) %></li>
+<% end %></ul>
+
+<h2>User <%= @user.username %> has commented:</h2>
+<ul><% @user.comments.each do |comment| %>
+<li><%= comment.content %> for a goal <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
+<% end %></ul>

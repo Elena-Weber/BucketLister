@@ -1,0 +1,4 @@
+<h1>Our Achievers' comments:</h1>
+<ul><% @comments.each do |comment| %>
+<li><%=  comment.content %> for a goal <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
+<% end %></ul>
