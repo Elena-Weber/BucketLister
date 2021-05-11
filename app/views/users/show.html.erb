@@ -8,5 +8,5 @@
 
 <h2>User <%= @user.username %> has commented:</h2>
 <ul><% @user.comments.each do |comment| %>
-<li><%= comment.content %> for a goal <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
+<li><%= comment.content %> - for a goal - <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
 <% end %></ul>

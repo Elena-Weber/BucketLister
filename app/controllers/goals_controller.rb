@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
 
     def index
         @goals = Goal.all
+        @goals_count = Goal.count
     end
 
     def new

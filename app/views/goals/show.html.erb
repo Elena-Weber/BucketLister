@@ -3,7 +3,7 @@
 <h2>Set by:</h2> <%= link_to @goal.user.username, user_path(@goal.user) %>
 <h2>Details:</h2> <%= @goal.details %>
 <h2>Time to achieve:</h2> <%= @goal.month %> months
-<h2>Has it been achieved?</h2> <%= @goal.achieved %>
+<h2>Has it been achieved?</h2> <%= @goal.achieved ? "Yes" : "No" %>
 <h2>Comments for this goal:</h2>
 <ul><% @goal.comments.each do |comment| %>
 <li><%= comment.content %> by <%= link_to comment.user.username, user_path(comment.user) %></li>
