@@ -24,6 +24,7 @@ class GoalsController < ApplicationController
     def update
         @goal = Goal.find(params[:id])
         @goal.update(goal_params)
+        #binding.pry
         redirect_to goal_path(@goal)
     end
 
