@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     end
 
     def new
-
+#binding.pry
     end
 
     def create
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     end
 
     def show
-
+        @comment = Comment.find(params[:id])
     end
 
     def edit
