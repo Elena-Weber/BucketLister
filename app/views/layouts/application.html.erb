@@ -12,6 +12,12 @@
 
   <body>
   <h1>Welcome to BucketLister!</h1>
+    <% if !logged_in? %>
+<%= link_to "Sign Up", new_user_path %> | <%= link_to "Log In", login_path %>
+<% else %>
+    You're logged in as <%= current_user.username %> | <%= link_to "Log Out", logout_path, method: :delete %>
+<% end %>
+
     <%= yield %>
     <br><br><%= link_to "All achievers", users_path %> | <%= link_to "All categories", categories_path %> | <%= link_to "All goals", goals_path %> | <%= link_to "All comments", comments_path %>
   </body>
