@@ -5,11 +5,13 @@ post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 
   resources :goals
+  post '/goals/new', to: 'goals#create'
 
   resources :goals do
     resources :comments
     resources :users
   end
+  
   resources :users do
     resources :goals
   end

@@ -1,10 +1,10 @@
 <%= form_with model: @goal do |f| %>
-<%= f.label "Category: " %><%= f.collection_select :id, Category.all, :id, :name %><br><br>
+<%= f.label "Category: " %><%= f.collection_select :category_id, Category.all, :id, :name %><br><br>
 <%= f.label "What's your next goal? " %><%= f.text_field :content %><br><br>
 <%= f.label "Please, provide some details (optional) " %><%= f.text_area :details %><br><br>
 <%= f.label "Have you already achieved this goal? " %>
 <%= f.radio_button :achieved, true %><%= f.label :achieved_true, "Yes" %>
-<%= f.radio_button :achieved, false %><%= f.label :achieved_false, "No" %><br><br>
+<%= f.radio_button :achieved, false %><%= f.label :achieved_false, "Not yet" %><br><br>
 <%= f.label "When do you want to achieve it? (enter a number of months) " %><%= f.number_field :month %><br><br>
 <%= f.submit %>
 <% end %>
