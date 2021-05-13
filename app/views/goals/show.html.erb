@@ -5,11 +5,16 @@
 <h2>Time to achieve: <%= @goal.month %> months</h2>
 <h2>Has it been achieved? <%= @goal.achieved ? "Yes" : "Not yet" %></h2>
 <br><br>
+
+<% if logged_in? && @goal.user_id == current_user.id %>
 <button><%= link_to "Create a new goal", new_goal_path(@goal) %></button> | <button><%= link_to "Edit this goal", edit_goal_path(@goal) %></button> | <button><%= link_to "Delete this goal", @goal, method: :delete, data: { confirm: "Do you really want to delete this goal?" } %></button>
+<% end %>
 
 <h2>Comments for this goal:</h2>
 <ul><% @goal.comments.each do |comment| %>
 <li><%= link_to comment.user.username, user_path(comment.user) %> commented: <%= link_to comment.content, comment_path(comment) %></li>
 <% end %></ul>
 
+<% if logged_in? %>
 <button><%= link_to "Add a new comment for this goal", new_goal_comment_path(@goal) %></button>
+<% end %>

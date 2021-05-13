@@ -6,7 +6,9 @@
 <li><%= link_to goal.content, goal_path(goal) %></li>
 <% end %></ul>
 
+<% if logged_in? && @user.id == current_user.id %>
 <button><%= link_to "Create a new goal", new_goal_path(@goal) %></button>
+<% end %>
 
 <h2>User <%= @user.username %> has commented:</h2>
 <ul><% @user.comments.each do |comment| %>
