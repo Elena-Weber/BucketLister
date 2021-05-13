@@ -1,8 +1,4 @@
-<% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |error| %>
-        <h4><%= error %></h4>
-    <% end %>
-<% end %>
+
     
 <h1>Log in here:</h1>
 <%= form_with url: '/login' do |f| %>

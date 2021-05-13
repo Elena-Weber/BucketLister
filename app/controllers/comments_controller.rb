@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
     def new
         #binding.pry
         @goal = Goal.find(params[:goal_id])
-        
         @comment = @goal.comments.build
     end
 
@@ -21,7 +20,6 @@ class CommentsController < ApplicationController
         @goal = Goal.find(params[:goal_id])
         @comment.goal_id = @goal.id
         @comment.user_id = current_user.id
-        #binding.pry
         if @comment.save
             redirect_to comment_path(@comment)
         else
@@ -31,9 +29,13 @@ class CommentsController < ApplicationController
 
     def edit
         @comment = Comment.find(params[:id])
+        # @comment.goal_id = @goal.id #add
+        # @goal = Goal.find(params[:goal_id]) #add
+        #binding.pry
     end
 
     def update
+        # @goal = Goal.find(params[:goal_id])
         @comment = Comment.find(params[:id])
         @comment.update(comment_params)
         redirect_to comment_path(@comment)
