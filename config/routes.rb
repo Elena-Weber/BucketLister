@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
@@ -10,6 +8,7 @@ get '/auth/facebook/callback' => 'sessions#create'
   resources :goals
   post '/goals/new', to: 'goals#create'
   post '/comments/new', to: 'comments#create'
+  #post '/goals/comments/new', to 'comments#create'
 
   resources :goals do
     resources :comments
