@@ -21,9 +21,10 @@ class GoalsController < ApplicationController
         # @goal.user_id = current_user.id
         
         if @goal.save
-            redirect_to user_goals_path(current_user, @goal)
+            redirect_to user_path(current_user)
+            #redirect_to user_goals_path(current_user, @goal)
         else
-           redirect_to :new
+            render 'goals/new'
         end
     end
 

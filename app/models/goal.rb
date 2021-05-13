@@ -1,4 +1,5 @@
 class Goal < ApplicationRecord
+  validates :content, :details, :month, presence: :true
 
   belongs_to :user
   belongs_to :category
