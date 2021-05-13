@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to comment_path(@comment)
         else
-            redirect_to @comment
+            render 'comments/new'
         end
     end
 

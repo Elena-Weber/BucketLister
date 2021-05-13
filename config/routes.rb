@@ -17,6 +17,7 @@ match '/auth/facebook/callback' => 'sessions#create', via:[:get, :post]
 
   resources :users do
     resources :goals
+    resources :comments
   end
 
   resources :comments
