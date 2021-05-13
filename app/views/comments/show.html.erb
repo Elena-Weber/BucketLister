@@ -1,3 +1,5 @@
 <h1>Comment: <%= @comment.content %> by user: <%= link_to @comment.user.username, user_path(@comment.user) %></h1>
 <h2>Goal: <%= link_to @comment.goal.content, goal_path(@comment.goal) %></h2>
 <h2>Category: <%= link_to @comment.goal.category.name, category_path(@comment.goal.category) %></h2>
+
+<button><%= link_to "Add a comment", new_comment_path(@comment) %></button> | <button><%= link_to "Edit this comment", edit_comment_path(@comment) %></button> | <button><%= link_to "Delete this comment", @comment, method: :delete, data: { confirm: "Do you really want to delete this comment?" } %></button>

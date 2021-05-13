@@ -5,6 +5,10 @@ class UsersController < ApplicationController
         @users_count = User.count
     end
 
+    def show
+        @user = User.find(params[:id])
+    end
+
     def new
         @user = User.new
     end
@@ -19,19 +23,20 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
-        @user = User.find(params[:id])
-    end
-
     def edit
+        @user = User.find_by_id(params[:id])
+        # @user.update(user_params)
+        # redirect_to user_path(@user)
     end
 
     def update
+        @user = User.find_by_id(params[:id])
         @user.update(user_params)
         redirect_to user_path(@user)
     end
 
     def destroy
+        @user = User.find_by_id(params[:id])
         @user.destroy
         redirect_to users_path
     end
