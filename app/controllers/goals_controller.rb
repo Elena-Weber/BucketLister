@@ -14,16 +14,17 @@ class GoalsController < ApplicationController
     end
 
     def create
-        @user = User.find_by_id(params[:user_id])
-        @goal = @user.goals.build(goal_params)
+        #@user = User.find_by_id(params[:user_id])
+        #binding.pry
+        @goal = current_user.goals.build(goal_params)
         # @goal = Goal.create(goal_params)
         # @goal.user_id = current_user.id
-        binding.pry
-        #if @goal.save
-            redirect_to user_goals_path(@user, @goal)
-        #else
-        #    redirect_to @goal
-        #end
+        
+        if @goal.save
+            redirect_to user_goals_path(current_user, @goal)
+        else
+           redirect_to :new
+        end
     end
 
     def edit

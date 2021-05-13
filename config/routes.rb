@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
-get '/auth/facebook/callback' => 'sessions#create'
+match '/auth/facebook/callback' => 'sessions#create', via:[:get, :post]
 #get '/auth/facebook'
 
   resources :goals

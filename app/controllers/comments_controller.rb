@@ -10,10 +10,18 @@ class CommentsController < ApplicationController
     end
 
     def new
+        #binding.pry
+        @goal = Goal.find(params[:goal_id])
+        
+        @comment = @goal.comments.build
     end
 
     def create
         @comment = Comment.new(comment_params)
+        @goal = Goal.find(params[:goal_id])
+        @comment.goal_id = @goal.id
+        @comment.user_id = current_user.id
+        #binding.pry
         if @comment.save
             redirect_to comment_path(@comment)
         else
