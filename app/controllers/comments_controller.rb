@@ -1,12 +1,14 @@
 class CommentsController < ApplicationController
 
+    before_action :find_comment, only: [:show, :edit, :update]
+    before_action :authorized, only: [:edit, :update, :destroy]
+
     def index
         @comments = Comment.all
-        @comments_count = Comment.count
     end
 
     def show
-        @comment = Comment.find(params[:id])
+        #@comment = Comment.find(params[:id])
     end
 
     def new
@@ -28,7 +30,7 @@ class CommentsController < ApplicationController
     end
 
     def edit
-        @comment = Comment.find(params[:id])
+        #@comment = Comment.find(params[:id])
         # @comment.goal_id = @goal.id #add
         # @goal = Goal.find(params[:goal_id]) #add
         #binding.pry
@@ -36,7 +38,7 @@ class CommentsController < ApplicationController
 
     def update
         # @goal = Goal.find(params[:goal_id])
-        @comment = Comment.find(params[:id])
+        #@comment = Comment.find(params[:id])
         @comment.update(comment_params)
         redirect_to comment_path(@comment)
     end
@@ -47,6 +49,10 @@ class CommentsController < ApplicationController
     end
 
     private
+
+    def find_comment
+        @comment = Comment.find(params[:id])
+    end
 
     def comment_params
         params.require(:comment).permit(:content, :user_id, :goal_id)

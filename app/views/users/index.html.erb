@@ -1,4 +1,4 @@
-<h1>Our Achievers (<%= @users_count %>):</h1>
+<h1>Our Achievers:</h1>
 <ul><% @users.each do |user| %>
 <li><%= link_to user.username, user_path(user) %></li>
 <% end %></ul>

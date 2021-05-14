@@ -1,12 +1,14 @@
 class GoalsController < ApplicationController
 
+    before_action :find_goal, only: [:show, :edit, :update]
+    before_action :authorized, only: [:edit, :update, :destroy]
+
     def index
         @goals = Goal.all
-        @goals_count = Goal.count
     end
 
     def show
-        @goal = Goal.find(params[:id])
+        #@goal = Goal.find(params[:id])
     end
 
     def new
@@ -29,11 +31,11 @@ class GoalsController < ApplicationController
     end
 
     def edit
-        @goal = Goal.find(params[:id])
+        #@goal = Goal.find(params[:id])
     end
 
     def update
-        @goal = Goal.find(params[:id])
+        #@goal = Goal.find(params[:id])
         @goal.update(goal_params)
         redirect_to goal_path(@goal)
     end
@@ -44,6 +46,10 @@ class GoalsController < ApplicationController
     end
 
     private
+
+    def find_goal
+        @goal = Goal.find(params[:id])
+    end
 
     def goal_params
         params.require(:goal).permit(:content, :details, :achieved, :month, :user_id, :category_id)

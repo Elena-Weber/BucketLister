@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
 
     def index
         @categories = Category.all
-        @categories_count = Category.count
     end
 
     # def new
