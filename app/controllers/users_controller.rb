@@ -28,11 +28,9 @@ class UsersController < ApplicationController
     def edit
         #binding.pry
         #@user = User.find_by_id(params[:id])
-
         # if @user(params[:id]) != current_user.id
         #     redirect_to users_path
         # end
-        
     end
 
     def update
@@ -58,10 +56,8 @@ class UsersController < ApplicationController
     end
 
     def authorized_users
-        @user = User.find_by_id(params[:id])
-        #binding.pry
-        redirect_to goals_path unless logged_in? && @user.id == current_user.id
-        #binding.pry
+        @this_user = User.find_by_id(params[:id])
+        redirect_to goals_path unless logged_in? && @this_user.id == current_user.id
     end
 
 end
