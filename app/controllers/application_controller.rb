@@ -10,8 +10,12 @@ class ApplicationController < ActionController::Base
         !current_user.nil?
     end
 
-    def authorized
-        redirect_to goals_path unless logged_in? && @user == current_user
-    end
+    #def authorized
+        #redirect_to goals_path unless logged_in? && @user[:id] == current_user.id
+        #@user = User.find_by_id(params[:id])
+        #binding.pry
+        #redirect_to goals_path unless logged_in? && @user.id == current_user.id
+        #binding.pry
+    #end
 
 end

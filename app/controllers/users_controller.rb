@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-    before_action :find_user, only: [:show, :edit, :update, :destroy]
-    before_action :authorized, only: [:edit, :update, :destroy]
+    before_action :find_user, only: [:show, :update, :destroy]
+    before_action :authorized_users, only: [:edit, :update, :destroy]
 
     def index
         @users = User.all
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     end
 
     def edit
+        #binding.pry
         #@user = User.find_by_id(params[:id])
 
         # if @user(params[:id]) != current_user.id
@@ -54,6 +55,13 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :location, :email, :password, :password_confirmation)
+    end
+
+    def authorized_users
+        @user = User.find_by_id(params[:id])
+        #binding.pry
+        redirect_to goals_path unless logged_in? && @user.id == current_user.id
+        #binding.pry
     end
 
 end

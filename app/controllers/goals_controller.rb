@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
     before_action :find_goal, only: [:show, :edit, :update]
-    before_action :authorized, only: [:edit, :update, :destroy]
+    before_action :authorized_goals, only: [:edit, :update, :destroy]
 
     def index
         @goals = Goal.all
@@ -31,6 +31,12 @@ class GoalsController < ApplicationController
     end
 
     def edit
+        #redirect_to goals_path unless logged_in? && @goal.user.id == current_user.id
+        
+        # @user = @goal.user
+        # binding.pry
+        # authorized
+        
         #@goal = Goal.find(params[:id])
     end
 
@@ -53,6 +59,10 @@ class GoalsController < ApplicationController
 
     def goal_params
         params.require(:goal).permit(:content, :details, :achieved, :month, :user_id, :category_id)
+    end
+
+    def authorized_goals
+        redirect_to goals_path unless logged_in? && @goal.user.id == current_user.id
     end
 
 end

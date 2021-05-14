@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
     before_action :find_comment, only: [:show, :edit, :update]
-    before_action :authorized, only: [:edit, :update, :destroy]
+    before_action :authorized_comments, only: [:edit, :update, :destroy]
 
     def index
         @comments = Comment.all
@@ -31,9 +31,8 @@ class CommentsController < ApplicationController
 
     def edit
         #@comment = Comment.find(params[:id])
-        # @comment.goal_id = @goal.id #add
-        # @goal = Goal.find(params[:goal_id]) #add
-        #binding.pry
+        #redirect_to goals_path unless logged_in? && @comment.user.id == current_user.id
+        
     end
 
     def update
@@ -56,6 +55,10 @@ class CommentsController < ApplicationController
 
     def comment_params
         params.require(:comment).permit(:content, :user_id, :goal_id)
+    end
+
+    def authorized_comments
+        redirect_to goals_path unless logged_in? && @comment.user.id == current_user.id
     end
 
 end
