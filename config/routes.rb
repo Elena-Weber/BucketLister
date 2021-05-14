@@ -23,5 +23,9 @@ match '/auth/facebook/callback' => 'sessions#create', via:[:get, :post]
   resources :comments
   resources :categories
   
+  namespace :admin do
+    resources :stats
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

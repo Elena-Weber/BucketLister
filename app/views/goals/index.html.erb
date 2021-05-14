@@ -2,3 +2,17 @@
 <ul><% @goals.each do |goal| %>
 <li><%= link_to goal.content, goal_path(goal) %></li>
 <% end %></ul>
+
+<ul><% @goals.true_achieved.each do |g| %>
+<li><%= g.content %></li>
+<% end %></ul>
+
+<ul><% @goals.false_achieved.each do |g| %>
+<li><%= g.content %></li>
+<% end %></ul>
+
+<%= form_with model: @goal do |f| %>
+<%= f.label "Adjust goals: " %>
+<%= f.radio_button :achieved, true %><%= f.label :achieved_true, "Achieved goals" %>
+<%= f.radio_button :achieved, false %><%= f.label :achieved_false, "Goals not achieved yet" %><br>
+<% end %>
