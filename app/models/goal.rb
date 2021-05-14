@@ -21,7 +21,6 @@ class Goal < ApplicationRecord
 
   def self.latest_goals
     all.order(id: :desc).limit(5)
-    #binding.pry
   end
 
   def self.fulfilled
@@ -30,6 +29,20 @@ class Goal < ApplicationRecord
 
   def self.unfulfilled
     where(achieved: false).limit(5)
+  end
+
+  def self.search(search)
+    if search
+      @goalie = Goal.find_by(content: search)
+      if @goalie
+        self.where(content: @goalie)
+        #binding.pry
+      else
+        @goals = Goal.all
+      end
+    else
+      @goals = Goal.all
+    end
   end
 
 end

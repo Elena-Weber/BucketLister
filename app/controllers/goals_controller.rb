@@ -4,7 +4,8 @@ class GoalsController < ApplicationController
     before_action :authorized_goals, only: [:edit, :update, :destroy]
 
     def index
-        @goals = Goal.all
+        #@goals = Goal.all
+        @goals = Goal.search(params[:search]) #!
     end
 
     def show
@@ -58,7 +59,9 @@ class GoalsController < ApplicationController
     end
 
     def goal_params
-        params.require(:goal).permit(:content, :details, :achieved, :month, :user_id, :category_id)
+        params.require(:goal).permit(:content, :details, :achieved, :month, :user_id, :category_id, 
+            :search
+        )
     end
 
     def authorized_goals

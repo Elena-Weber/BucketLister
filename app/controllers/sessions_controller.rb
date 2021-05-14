@@ -38,6 +38,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to user_path(@user)
             else
+                flash.now[:alert] = "Oops... Something's wrong. Please make sure your username and/or password are correct."
                 render 'sessions/new'
             end
         end
