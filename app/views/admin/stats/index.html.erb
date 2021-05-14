@@ -1,5 +1,25 @@
-<h1>App Stats</h1>
+<h1>BucketLister Statistics</h1>
 <p>Number of users: <%= @users_count %></p>
 <p>Number of categories: <%= @categories_count %></p>
 <p>Number of goals: <%= @goals_count %></p>
 <p>Number of comments: <%= @comments_count %></p>
+
+<p>Oldest goals set: </p>
+<ul><% @first_gs.each do | fg | %>
+<li><%= link_to fg.content, goal_path(fg) %></li>
+<% end %></ul>
+
+<p>Latest goals set: </p>
+<ul><% @latest_gs.each do | lg | %>
+<li><%= link_to lg.content, goal_path(lg) %></li>
+<% end %></ul>
+
+<p>Random achieved goals: </p>
+<ul><% @ffg.each do | ffg | %>
+<li><%= link_to ffg.content, goal_path(ffg) %></li>
+<% end %></ul>
+
+<p>Random unachieved goals: </p>
+<ul><% @unffg.each do | unffg | %>
+<li><%= link_to unffg.content, goal_path(unffg) %></li>
+<% end %></ul>

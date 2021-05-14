@@ -15,4 +15,21 @@ class Goal < ApplicationRecord
     where(achieved: false)
   end
 
+  def self.first_goals
+    all.limit(5)
+  end
+
+  def self.latest_goals
+    all.order(id: :desc).limit(5)
+    #binding.pry
+  end
+
+  def self.fulfilled
+    where(achieved: true).order('RANDOM()').limit(5)
+  end
+
+  def self.unfulfilled
+    where(achieved: false).limit(5)
+  end
+
 end
