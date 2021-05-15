@@ -31,18 +31,8 @@ class Goal < ApplicationRecord
     where(achieved: false).limit(5)
   end
 
-  def self.search(search)
-    if search
-      @goalie = Goal.find_by(content: search)
-      if @goalie
-        self.where(content: @goalie)
-        #binding.pry
-      else
-        @goals = Goal.all
-      end
-    else
-      @goals = Goal.all
-    end
+  def self.num_of_goals_in_cat
+    where(achieved: true).order('RANDOM()').limit(5)
   end
 
 end

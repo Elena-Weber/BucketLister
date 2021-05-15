@@ -1,12 +1,3 @@
-<h1>Goals</h1>
-<%= form_tag goals_path, :method => "get" do %>
-<%= label_tag(:search, "What goal are you looking for?") %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag("Search", :name => nil) %>
-<% end %>
-
-<%= @goalie %>
-
 <h1>Our Achievers' goals:</h1>
 <ul><% @goals.each do |goal| %>
 <li><%= link_to goal.content, goal_path(goal) %></li>
