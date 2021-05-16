@@ -1,14 +1,15 @@
 <h1>Welcome to the world of all possible!</h1>
 <h2>Get inspired by our achievers' goals and comments and create your own path to success.</h2>
 
-<table>
-<th><tr><td>10 random achieved goals to inspire you</td>
-<td>10 random comments to motivate you</td>
-</tr></th>
-<tr><td><% @ffg10.each do | ffg | %>
-<p><%= link_to ffg.content, goal_path(ffg) %></p>
-<% end %></td>
-<td><% @randomcomments.each do | rc | %>
-<p><%= link_to rc.content, comment_path(rc) %></p>
-<% end %></td></tr>
-</table>
+<div class="parent">
+<div class="child"><ul type="circle"><h3>10 random achieved goals to inspire you:</h3>
+<% @ffg10.each do | ffg | %>
+<li><%= link_to ffg.content, goal_path(ffg) %></li>
+<% end %></ul></div>
+<div class="child"><img src="https://images.unsplash.com/photo-1517570544249-a47a3b5d8a8d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8Z29hbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="goal" >
+</div>
+<div class="child"><ul type="circle"><h3>10 random comments to motivate you:</h3>
+<% @randomcomments.each do | rc | %>
+<li><%= link_to rc.content, comment_path(rc) %></li>
+<% end %></ul></div>
+</div>

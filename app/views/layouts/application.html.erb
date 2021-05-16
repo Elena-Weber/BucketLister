@@ -8,11 +8,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
-  <h1 class="bl">BucketLister</h1><%= link_to "All achievers", users_path %> | 
+  <h1 class="bl_title"><%= link_to "BucketLister", "/" %></h1>
+    <%= link_to "Home", "/" %> | 
+    <%= link_to "All achievers", users_path %> | 
     <%= link_to "All categories", categories_path %> | 
     <%= link_to "All goals", goals_path %> | 
     <%= link_to "All comments", comments_path %> | 
@@ -35,5 +40,5 @@ You're logged in as <%= link_to current_user.username, user_path(current_user) %
     <%= yield %>
     
   </body>
-  <footer class="bl"><h4>BucketLister - where all your goals are achieved with ease</h4></footer>
+  <footer class="bl_footer"><h4>BucketLister - where all your goals are achieved with ease</h4></footer>
 </html>

@@ -16,12 +16,14 @@
 body {
     background-color: #fafafa;
     color: #07689f;
+    font-family: 'Quicksand', sans-serif;
 }
 a {
     color: #07689f;
 }
 .general {
     color: #ff7e67;
+    font-weight: bold;
 }
 .btn {
     background-color: #ffd3b6;
@@ -35,4 +37,25 @@ color: #07689f;
 }
 .err {
     color: #ff8c94;
+}
+.bl_title {
+    background-color: #ffd3b6;
+    padding: 5px;
+}
+.bl_footer {
+    background-color: #ffd3b6;
+}
+.parent {
+    display: flex;
+    justify-content: center;
+}
+.child {
+    padding: 5px;
+    margin: auto;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
 }
