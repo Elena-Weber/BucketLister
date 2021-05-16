@@ -1,7 +1,5 @@
 <br>
-
-    
-<h1>Log in here:</h1>
+<h1 class="general">Log in here:</h1>
 <%= form_with url: '/login' do |f| %>
     <%= f.label :username, autofocus: true %>
     <%= f.text_field :username %><br><br>
@@ -9,6 +7,7 @@
     <%= f.password_field :password %><br><br><br>
     <%= f.submit "Log in" %>
 <% end %>
-
+<br>
+You can also
 <br><br>
-<%= link_to "Log in with Facebook", "/auth/facebook", method: :post %>
+<%= button_to "Log in with Facebook", "/auth/facebook", method: :post %>

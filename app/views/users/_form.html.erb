@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
         <% @user.errors.full_messages.each do |error| %>
-            <h4><%= error %></h4>
+            <h4 class="err"><%= error %></h4>
         <% end %>
     <% end %>
 
@@ -10,10 +10,12 @@
 <%= f.label "Email: " %><%= f.email_field :email %><br><br>
 <%= f.label "Password: " %><%= f.password_field :password %><br><br>
 <%= f.label "Confirm password: " %><%= f.password_field :password_confirmation %><br><br>
-<%= f.submit %>
+<%= f.submit "Register" %>
 <% end %>
 
 <br><br>
 <% if @user != logged_in? %>
-<%= link_to "Sign up with Facebook", "/auth/facebook" %>
+You can also
+<br><br>
+<%= button_to "Sign up with Facebook", "/auth/facebook" %>
 <% end %>

@@ -4,7 +4,7 @@
     <% end %>
 <% end %>
 
-<h1>Create your new comment for Goal <%= @goal.content %> here:</h1>
+<h1 class="general">Create your new comment for goal - <%= @goal.content %> - here:</h1>
 <%= form_for @comment, url: goal_comments_path(@goal) do |f| %>
 <%= f.label "Your comment: " %><%= f.text_field :content %><br><br>
 <%= f.submit %>

@@ -11,7 +11,15 @@
   </head>
 
   <body>
-  <h1>Welcome to BucketLister!</h1>
+
+  <h1 class="bl">Welcome to BucketLister!</h1><%= link_to "All achievers", users_path %> | 
+    <%= link_to "All categories", categories_path %> | 
+    <%= link_to "All goals", goals_path %> | 
+    <%= link_to "All comments", comments_path %> | 
+    <%= link_to "App statistics", admin_stats_path %>
+
+    <br><br>
+
     <% if !logged_in? %>
 <%= link_to "Sign Up", new_user_path %> | <%= link_to "Log In", login_path %>
 <% else %>
@@ -25,11 +33,7 @@ You're logged in as <%= link_to current_user.username, user_path(current_user) %
 <% end %>
 
     <%= yield %>
-    <br><br><%= link_to "All achievers", users_path %> | 
-    <%= link_to "All categories", categories_path %> | 
-    <%= link_to "All goals", goals_path %> | 
-    <%= link_to "All comments", comments_path %> | 
-    <%= link_to "App statistics", admin_stats_path %>
+    
   </body>
-  <footer><h4>BucketLister - where all your goals are achieved with ease</h4></footer>
+  <footer class="bl"><h4>BucketLister - where all your goals are achieved with ease</h4></footer>
 </html>

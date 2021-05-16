@@ -1,4 +1,4 @@
-<h1>Edit your new comment for <%= @goal %> here:</h1>
+<h1 class="general">Edit your new comment for <%= @goal %> here:</h1>
 <%= form_with model: @comment do |f| %>
 <%= f.label "Your comment: " %><%= f.text_field :content %><br><br>
 <%= f.submit %>
