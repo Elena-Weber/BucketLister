@@ -39,7 +39,7 @@ color: #07689f;
     color: #ff8c94;
 }
 .bl_title {
-    background-color: #ffd3b6;
+    background-color:  #ffd3b6;
     padding: 5px;
 }
 .bl_footer {
@@ -50,7 +50,7 @@ color: #07689f;
     justify-content: center;
 }
 .child {
-    padding: 5px;
+    padding: 10px;
     margin: auto;
 }
 img {
@@ -58,4 +58,9 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+}
+.navi {
+    text-align: right;
+    background-color: #ffd3b6;
+    padding: 3px;
 }
