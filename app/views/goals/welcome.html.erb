@@ -1,0 +1,14 @@
+<h1>Welcome to the world of all possible!</h1>
+<h2>Get inspired by our achievers' goals and comments and create your own path to success.</h2>
+
+<table>
+<th><tr><td>10 random achieved goals to inspire you</td>
+<td>10 random comments to motivate you</td>
+</tr></th>
+<tr><td><% @ffg10.each do | ffg | %>
+<p><%= link_to ffg.content, goal_path(ffg) %></p>
+<% end %></td>
+<td><% @randomcomments.each do | rc | %>
+<p><%= link_to rc.content, comment_path(rc) %></p>
+<% end %></td></tr>
+</table>

@@ -28,7 +28,11 @@ class Goal < ApplicationRecord
   end
 
   def self.unfulfilled
-    where(achieved: false).limit(5)
+    where(achieved: false).order('RANDOM()').limit(5)
+  end
+
+  def self.fulfilled10
+    where(achieved: true).order('RANDOM()').limit(10)
   end
 
   def self.num_of_goals_in_cat

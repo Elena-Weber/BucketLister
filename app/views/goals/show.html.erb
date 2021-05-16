@@ -2,7 +2,7 @@
 <h2 class="general">Category: <%= link_to @goal.category.name, category_path(@goal.category) %></h2>
 <h2 class="general">Set by: <%= link_to @goal.user.username, user_path(@goal.user) %></h2>
 <h2 class="general">Details:<h2> <%= @goal.details %>
-<h2 class="general">Time to achieve:</h2> <%= @goal.month %> months
+<h2 class="general">Time to achieve:</h2> <%= @goal.month %> month(s)
 <h2 class="general">Has it been achieved?</h2> <%= @goal.achieved ? "Yes" : "Not yet" %>
 <br><br>
 

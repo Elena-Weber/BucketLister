@@ -51,6 +51,11 @@ class GoalsController < ApplicationController
         redirect_to goals_path
     end
 
+    def welcome
+        @ffg10 = Goal.fulfilled10
+        @randomcomments = Comment.randcoms
+    end
+
     private
 
     def find_goal
