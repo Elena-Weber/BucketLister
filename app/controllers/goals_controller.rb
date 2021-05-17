@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
 
-    before_action :find_goal, only: [:show, :edit, :update]
+    before_action :find_goal, only: [:show, :edit, :update, :destroy]
     before_action :authorized_goals, only: [:edit, :update, :destroy]
 
     def index
@@ -47,7 +47,8 @@ class GoalsController < ApplicationController
     end
 
     def destroy
-        @goal = Goal.find(params[:id]).destroy
+        #@goal = Goal.find(params[:id]).destroy
+        @goal.destroy
         redirect_to goals_path
     end
 
@@ -67,6 +68,7 @@ class GoalsController < ApplicationController
     end
 
     def authorized_goals
+        #binding.pry
         redirect_to goals_path unless logged_in? && @goal.user.id == current_user.id
     end
 

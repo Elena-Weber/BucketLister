@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-    before_action :find_comment, only: [:show, :edit, :update]
+    before_action :find_comment, only: [:show, :edit, :update, :destroy]
     before_action :authorized_comments, only: [:edit, :update, :destroy]
 
     def index
@@ -43,7 +43,8 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find(params[:id]).destroy
+        #@comment = Comment.find(params[:id]).destroy
+        @comment.destroy
         redirect_to goals_path
     end
 
