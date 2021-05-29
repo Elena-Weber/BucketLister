@@ -1,16 +1,16 @@
 <h1 class="general">Goal: <%= @goal.content %></h1>
-<h2 class="general">Category: <%= link_to @goal.category.name, category_path(@goal.category) %></h2>
-<h2 class="general">Set by: <%= link_to @goal.user.username, user_path(@goal.user) %></h2>
-<h2 class="general">Details:<h2> <%= @goal.details %>
-<h2 class="general">Time to achieve:</h2> <%= @goal.month %> month(s)
-<h2 class="general">Has it been achieved?</h2> <%= @goal.achieved ? "Yes" : "Not yet" %>
+<h3 class="general">Category: <%= link_to @goal.category.name, category_path(@goal.category) %></h3>
+<h3 class="general">Set by: <%= link_to @goal.user.username, user_path(@goal.user) %></h3>
+<h3 class="general">Details:<h3> <%= @goal.details %>
+<h3 class="general">Time to achieve:</h3> <%= @goal.month %> month(s)
+<h3 class="general">Has it been achieved?</h3> <%= @goal.achieved ? "Yes" : "Not yet" %>
 <br><br>
 
 <% if logged_in? && @goal.user_id == current_user.id %>
 <button class="btn"><%= link_to "Create a new goal", new_goal_path(@goal) %></button> | <button class="btn"><%= link_to "Edit this goal", edit_goal_path(@goal) %></button> | <button class="btn"><%= link_to "Delete this goal", @goal, method: :delete, data: { confirm: "Do you really want to delete this goal?" } %></button>
 <% end %>
 
-<h2 class="general">Comments for this goal:</h2>
+<h3 class="general">Comments for this goal:</h3>
 <ul><% @goal.comments.each do |comment| %>
 <li><%= link_to comment.user.username, user_path(comment.user) %> commented: <%= link_to comment.content, comment_path(comment) %></li>
 <% end %></ul>

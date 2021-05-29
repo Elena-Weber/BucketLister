@@ -21,7 +21,6 @@ class GoalsController < ApplicationController
         @goal = current_user.goals.build(goal_params)
         # @goal = Goal.create(goal_params)
         # @goal.user_id = current_user.id
-        
         if @goal.save
             redirect_to user_path(current_user)
             #redirect_to user_goals_path(current_user, @goal)
@@ -32,11 +31,9 @@ class GoalsController < ApplicationController
 
     def edit
         #redirect_to goals_path unless logged_in? && @goal.user.id == current_user.id
-        
         # @user = @goal.user
         # binding.pry
         # authorized
-        
         #@goal = Goal.find(params[:id])
     end
 

@@ -5,7 +5,7 @@
 <% end %>
 
 <%= form_with model: @goal do |f| %>
-<%= f.label "Category: " %><%= f.collection_select :category_id, Category.all, :id, :name %><br><br>
+<%= f.label "Category: " %><%= f.collection_select :category_id, Category.all.order('name ASC'), :id, :name %><br><br>
 <%= f.label "What's your next goal? " %><%= f.text_field :content %><br><br>
 <%= f.label "Please, provide some details " %><%= f.text_area :details %><br><br>
 <%= f.label "Have you already achieved this goal? " %>

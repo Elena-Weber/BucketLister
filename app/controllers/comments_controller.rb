@@ -32,7 +32,6 @@ class CommentsController < ApplicationController
     def edit
         #@comment = Comment.find(params[:id])
         #redirect_to goals_path unless logged_in? && @comment.user.id == current_user.id
-        
     end
 
     def update

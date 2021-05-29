@@ -1,15 +1,13 @@
 class CategoriesController < ApplicationController
 
     def index
-        @categories = Category.all
+        @categories = Category.all.order('name ASC')
     end
 
     # def new
-
     # end
 
     # def create
-
     # end
 
     def show
@@ -17,15 +15,12 @@ class CategoriesController < ApplicationController
     end
 
     # def edit
-
     # end
 
     # def update
-
     # end
 
     # def destroy
-
     # end
 
 end

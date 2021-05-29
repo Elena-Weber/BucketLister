@@ -1,8 +1,8 @@
 <h1 class="general">BucketLister Statistics - for our curious achievers:</h1>
-<p>Number of users: <%= @users_count %></p>
-<p>Number of categories: <%= @categories_count %></p>
-<p>Number of goals: <%= @goals_count %></p>
-<p>Number of comments: <%= @comments_count %></p>
+<p class="general">Number of users:</p> <%= @users_count %>
+<p class="general">Number of categories:</p> <%= @categories_count %>
+<p class="general">Number of goals:</p> <%= @goals_count %>
+<p class="general">Number of comments:</p> <%= @comments_count %>
 
 <p class="general">Oldest goals set: </p>
 <ul><% @first_gs.each do | fg | %>
