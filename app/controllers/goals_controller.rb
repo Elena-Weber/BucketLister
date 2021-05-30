@@ -3,8 +3,18 @@ class GoalsController < ApplicationController
     before_action :find_goal, only: [:show, :edit, :update, :destroy]
     before_action :authorized_goals, only: [:edit, :update, :destroy]
 
+    # def index
+    #     @goals = Goal.all
+    # end
+
     def index
         @goals = Goal.all
+        #binding.pry
+        if params[:achieved] == "Achieved"
+            @goals = Goal.true_achieved
+        elsif params[:achieved] == "Not achieved yet"
+            @goals = Goal.false_achieved
+        end
     end
 
     def show

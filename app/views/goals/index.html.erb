@@ -1,17 +1,12 @@
-<h1>Filter goals:</h1>
-<%= form_with model: @goal do |f| %>
-<%= f.radio_button :achieved, true %>Achieved<br />
-<%= f.radio_button :achieved, false %>Not achieved yet<br />
-<% end %>
-
-<%= form_with model: @goal do |f| %>
-<%= f.label "Have you already achieved this goal? " %>
-<%= f.radio_button :achieved, true %><%= f.label :achieved_true, "Yes" %>
-<%= f.radio_button :achieved, false %><%= f.label :achieved_false, "Not yet" %><br><br>
-<%= f.submit %>
-<% end %>
-
 <h1 class="general">Our Achievers' goals - get inspired:</h1>
+<h3>Filter goals:</h3>
+<%= form_tag("/goals", method: "get") do %>
+    
+    <%= select_tag "achieved", options_for_select(["Achieved", "Not achieved yet"]), include_blank: true %>
+
+    <%= submit_tag "Filter" %>
+<% end %>
+
 <ul><% @goals.each do |goal| %>
 <li><%= link_to goal.content, goal_path(goal) %></li>
 <% end %></ul>
