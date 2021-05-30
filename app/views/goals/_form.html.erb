@@ -10,7 +10,7 @@
 <%= f.label "Please, provide some details " %><%= f.text_area :details %><br><br>
 <%= f.label "Have you already achieved this goal? " %>
 <%= f.radio_button :achieved, true %><%= f.label :achieved_true, "Yes" %>
-<%= f.radio_button :achieved, false %><%= f.label :achieved_false, "Not yet" %><br><br>
+<%= f.radio_button :achieved, false, checked: true %><%= f.label :achieved_false, "Not yet" %><br><br>
 <%= f.label "When do you want to achieve it? (choose a number of months) " %><%= f.number_field :month, in: 1..60 %><br><br>
 <%= f.submit %>
 <% end %>

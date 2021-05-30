@@ -1,5 +1,5 @@
 <h1 class="general">Our Achievers' goals - get inspired:</h1>
-<h3>Filter goals:</h3>
+<h3>You can also filter goals:</h3>
 <%= form_tag("/goals", method: "get") do %>
     
     <%= select_tag "achieved", options_for_select(["Achieved", "Not achieved yet"]), include_blank: true %>
