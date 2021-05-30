@@ -1,0 +1,11 @@
+<h1 class="general">Search results:</h1>
+<% if @goals.empty? %>
+    <h3>Sorry, no results matching your search criteria. Try typing just one word.</h3>
+<% else %>
+    <ul><% @goals.each do | g | %>
+        <li><%= link_to g.content, goal_path(g) %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h3><%= link_to "Go back and try again", goals_path %></h3>

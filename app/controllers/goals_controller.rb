@@ -17,6 +17,17 @@ class GoalsController < ApplicationController
         end
     end
 
+    def search
+        if params[:search].blank?  
+            redirect_to(goals_path, alert: "Empty field!") #and return  
+        else
+            search_term = params[:search].downcase.gsub(/\s+/, "")
+            @goals = Goal.all.select { |g|
+            g.content.downcase.include?(search_term)
+        }
+        end
+    end
+
     def show
         #@goal = Goal.find(params[:id])
         #binding.pry
