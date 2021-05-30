@@ -7,12 +7,13 @@ match '/auth/facebook/callback' => 'sessions#create', via:[:get, :post]
 root 'goals#welcome'
 
   resources :goals
-  post '/goals/new', to: 'goals#create'
+  #post '/goals/new', to: 'goals#create'
   post '/comments/new', to: 'comments#create'
 
   resources :goals do
     resources :comments
     resources :users
+    resources :categories
   end
 
   resources :users do
@@ -20,7 +21,10 @@ root 'goals#welcome'
     resources :comments
   end
 
-  resources :comments
+  resources :comments do
+    resources :users
+  end
+
   resources :categories
   
   namespace :admin do

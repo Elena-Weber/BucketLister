@@ -3,7 +3,7 @@
 
 <h2 class="general">User <%= @user.username %> has set these goals:</h2>
 <ul><% @user.goals.each do |goal| %>
-<li><%= link_to goal.content, goal_path(goal) %></li>
+<li><%= link_to goal.content, user_goal_path(@user, goal) %></li>
 <% end %></ul>
 
 <% if logged_in? && @user.id == current_user.id %>
@@ -12,5 +12,5 @@
 
 <h3 class="general">User <%= @user.username %> has commented:</h3>
 <ul><% @user.comments.each do |comment| %>
-<li><%= link_to comment.content, comment_path(comment) %> - for a goal - <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
+<li><%= link_to comment.content, user_comment_path(@user, comment) %> - for a goal - <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
 <% end %></ul>

@@ -9,6 +9,10 @@ class GoalsController < ApplicationController
 
     def show
         #@goal = Goal.find(params[:id])
+        #binding.pry
+        @goal = Goal.find_by_id(params[:id])
+        @user = User.find_by_id(params[:user_id])
+        #@user.id = @goal.user_id
     end
 
     def new

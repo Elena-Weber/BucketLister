@@ -1,6 +1,6 @@
 <h1 class="general">Goal: <%= @goal.content %></h1>
-<h3 class="general">Category: <%= link_to @goal.category.name, category_path(@goal.category) %></h3>
-<h3 class="general">Set by: <%= link_to @goal.user.username, user_path(@goal.user) %></h3>
+<h3 class="general">Category: <%= link_to @goal.category.name, goal_category_path(@goal, @goal.category_id) %></h3>
+<h3 class="general">Set by: <%= link_to @goal.user.username, goal_user_path(@goal, @goal.user_id) %></h3>
 <h3 class="general">Details:<h3> <%= @goal.details %>
 <h3 class="general">Time to achieve:</h3> <%= @goal.month %> month(s)
 <h3 class="general">Has it been achieved?</h3> <%= @goal.achieved ? "Yes" : "Not yet" %>
@@ -12,7 +12,7 @@
 
 <h3 class="general">Comments for this goal:</h3>
 <ul><% @goal.comments.each do |comment| %>
-<li><%= link_to comment.user.username, user_path(comment.user) %> commented: <%= link_to comment.content, comment_path(comment) %></li>
+<li><%= link_to comment.user.username, comment_user_path(comment, comment.user_id) %> commented: <%= comment.content %></li>
 <% end %></ul>
 
 <% if logged_in? %>
