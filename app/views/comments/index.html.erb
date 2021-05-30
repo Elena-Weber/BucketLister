@@ -1,4 +1,4 @@
 <h1 class="general">Our Achievers' comments - get motivated:</h1>
 <ul><% @comments.each do |comment| %>
-<li><%= link_to comment.content, comment_path(comment) %> for a goal <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
+<li><%= link_to comment.content, comment_path(comment) %> for a goal: <%= link_to comment.goal.content, goal_path(comment.goal) %></li>
 <% end %></ul>

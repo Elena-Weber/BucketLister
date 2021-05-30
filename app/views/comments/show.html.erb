@@ -1,4 +1,4 @@
-<h3 class="general">Comment: <%= @comment.content %> by user: <%= link_to @comment.user.username, comment_user_path(@comment, @comment.user_id) %></h3>
+<h3 class="general">User <%= link_to @comment.user.username, comment_user_path(@comment, @comment.user_id) %> has commented: <%= @comment.content %></h3>
 <h1 class="general">Goal: <%= link_to @comment.goal.content, comment_goal_path(@comment, @comment.goal_id) %></h1>
 <h3 class="general">Category: <%= link_to @comment.goal.category.name, comment_category_path(@comment, @comment.goal.category_id) %></h3>
 

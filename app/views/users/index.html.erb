@@ -1,4 +1,4 @@
 <h1 class="general">Our Achievers - get to know them and make some friends:</h1>
 <ul><% @users.each do |user| %>
-<li><%= link_to user.username, user_path(user) %></li>
+<li><%= link_to user.username, user_path(user) %> has set <%= user.goals.count %> goal(s)</li>
 <% end %></ul>

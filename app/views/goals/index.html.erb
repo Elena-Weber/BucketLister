@@ -1,13 +1,11 @@
 <h1 class="general">Our Achievers' goals - get inspired:</h1>
 <h3>You can also filter goals:</h3>
 <%= form_tag("/goals", method: "get") do %>
-    
     <%= select_tag "achieved", options_for_select(["Achieved", "Not achieved yet"]), include_blank: true %>
-
     <%= submit_tag "Filter" %>
 <% end %>
 
 <ul><% @goals.each do |goal| %>
-<li><%= link_to goal.content, goal_path(goal) %></li>
+<li><%= link_to goal.content, goal_path(goal) %> - set by user: <%= link_to goal.user.username, goal_user_path(goal, goal.user) %></li>
 <% end %></ul>
 
