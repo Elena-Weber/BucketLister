@@ -23,7 +23,7 @@
     <%= link_to "All comments", comments_path %> | 
     <%= link_to "App statistics", admin_stats_path %></div>
 
-    <br><br>
+    <br><%= render 'goals/searchbar' %><br>
 
     <% if !logged_in? %>
 <%= link_to "Sign Up", new_user_path %> | <%= link_to "Log In", login_path %>

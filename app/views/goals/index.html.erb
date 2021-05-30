@@ -1,12 +1,4 @@
 <h1 class="general">Our Achievers' goals - get inspired:</h1>
-
-<div>
-    <%= form_tag(goals_search_path, method: :get) do %>
-        Search a goal: <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search 🔍', content: nil %>
-    <% end %>
-</div>
-
 <h3>You can also filter goals:</h3>
 <%= form_tag("/goals", method: "get") do %>
     <%= select_tag "achieved", options_for_select(["Achieved", "Not achieved yet"]), include_blank: true %>

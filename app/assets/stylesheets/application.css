@@ -64,3 +64,6 @@ img {
     background-color: #ffd3b6;
     padding: 3px;
 }
+.search {
+    text-align: right;
+}

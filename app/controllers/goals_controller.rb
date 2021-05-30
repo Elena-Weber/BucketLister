@@ -23,7 +23,8 @@ class GoalsController < ApplicationController
         else
             search_term = params[:search].downcase.gsub(/\s+/, "")
             @goals = Goal.all.select { |g|
-            g.content.downcase.include?(search_term)
+            g.content.downcase.include?(search_term) ||
+            g.details.downcase.include?(search_term)
         }
         end
     end
