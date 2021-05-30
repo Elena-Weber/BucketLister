@@ -1,6 +1,6 @@
-<h3 class="general">Comment: <%= @comment.content %> by user: <%= link_to @comment.user.username, user_path(@comment.user) %></h3>
-<h1 class="general">Goal: <%= link_to @comment.goal.content, goal_path(@comment.goal) %></h1>
-<h3 class="general">Category: <%= link_to @comment.goal.category.name, category_path(@comment.goal.category) %></h3>
+<h3 class="general">Comment: <%= @comment.content %> by user: <%= link_to @comment.user.username, comment_user_path(@comment, @comment.user_id) %></h3>
+<h1 class="general">Goal: <%= link_to @comment.goal.content, comment_goal_path(@comment, @comment.goal_id) %></h1>
+<h3 class="general">Category: <%= link_to @comment.goal.category.name, comment_category_path(@comment, @comment.goal.category_id) %></h3>
 
 <% if logged_in? && @comment.user_id == current_user.id %>
 <button class="btn"><%= link_to "Edit this comment", edit_comment_path(@comment) %></button> | <button class="btn"><%= link_to "Delete this comment", @comment, method: :delete, data: { confirm: "Do you really want to delete this comment?" } %></button>

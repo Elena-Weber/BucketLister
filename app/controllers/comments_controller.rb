@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
     def show
         #@comment = Comment.find(params[:id])
+        #@goal = Goal.find(params[:goal_id])
+        #binding.pry
     end
 
     def new

@@ -12,7 +12,7 @@
 
 <h3 class="general">Comments for this goal:</h3>
 <ul><% @goal.comments.each do |comment| %>
-<li><%= link_to comment.user.username, comment_user_path(comment, comment.user_id) %> commented: <%= comment.content %></li>
+<li><%= link_to comment.user.username, comment_user_path(comment, comment.user_id) %> commented: <%= link_to comment.content, goal_comment_path(@goal, comment) %></li>
 <% end %></ul>
 
 <% if logged_in? %>

@@ -23,9 +23,14 @@ root 'goals#welcome'
 
   resources :comments do
     resources :users
+    resources :goals
+    resources :categories
   end
 
-  resources :categories
+  resources :categories do
+    resources :users
+    resources :goals
+  end
   
   namespace :admin do
     resources :stats

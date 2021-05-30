@@ -12,6 +12,7 @@ class GoalsController < ApplicationController
         #binding.pry
         @goal = Goal.find_by_id(params[:id])
         @user = User.find_by_id(params[:user_id])
+        @comment = Comment.find_by_id(params[:user_id])
         #@user.id = @goal.user_id
     end
 

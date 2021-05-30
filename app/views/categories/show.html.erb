@@ -1,4 +1,4 @@
 <h1 class="general">Here are goals in category: <%= @category.name %></h1>
 <ul><% @category.goals.each do |goal| %>
-<li>User <%= link_to goal.user.username, user_path(goal.user) %> has set this goal: <%= link_to goal.content, goal_path(goal) %></li>
+<li>User <%= link_to goal.user.username, category_user_path(@category, goal.user_id) %> has set this goal: <%= link_to goal.content, category_goal_path(@category, goal) %></li>
 <% end %></ul>
