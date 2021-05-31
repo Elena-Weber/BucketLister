@@ -10,15 +10,24 @@ class GoalsController < ApplicationController
     def index
 
         @user = User.find_by_id(params[:user_id])
-
+        @categories = Category.all.order('name ASC')
         @goals = Goal.all
         #binding.pry
-        if params[:achieved] == "Achieved"
-            @goals = Goal.true_achieved
-        elsif params[:achieved] == "Not achieved yet"
-            @goals = Goal.false_achieved
+        if !params[:category].blank?
+            #@goals = Goal.in_category(params[:category])
+            if !params[:achieved].blank?
+                if params[:achieved] == "Achieved"
+                @goals = Goal.in_category(params[:category]).true_achieved
+                elsif params[:achieved] == "Not achieved yet"
+                @goals = Goal.in_category(params[:category]).false_achieved
+                end
+            end
+        else
+            @goals = Goal.all
         end
     end
+
+
 
     def search
         if params[:search].blank?  

@@ -9,6 +9,7 @@
 <h3>You can also filter goals:</h3>
 <%= form_tag("/goals", method: "get") do %>
     <%= select_tag "achieved", options_for_select(["Achieved", "Not achieved yet"]), include_blank: true %>
+    <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
     <%= submit_tag "Filter" %>
 <% end %>
 

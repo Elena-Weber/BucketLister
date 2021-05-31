@@ -44,4 +44,8 @@ class Goal < ApplicationRecord
     where(achieved: true).order('RANDOM()').limit(5)
   end
 
+  def self.in_category(category_id)
+    where(category: category_id)
+  end
+  
 end
