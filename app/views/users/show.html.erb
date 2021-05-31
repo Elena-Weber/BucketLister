@@ -1,11 +1,19 @@
 <h1 class="general">User: <%= @user.username %></h1>
 <h3>Location: <%= @user.location %></h3>
 
-<h2 class="general">User <%= @user.username %> has set <%= @user.goals.count %> goal(s):</h2>
-<ul><% @user.goals.each do |goal| %>
+<h2 class="general">User <%= @user.username %> has achieved these goals:</h2>
+<ul><% @user.goals.true_achieved.each do |goal| %>
 <li><%= link_to goal.content, user_goal_path(@user, goal) %></li>
 <% end %></ul>
 
+<h2 class="general">User <%= @user.username %> has not achieved these goals yet:</h2>
+<ul><% @user.goals.false_achieved.each do |goal| %>
+<li><%= link_to goal.content, user_goal_path(@user, goal) %></li>
+<% end %></ul>
+
+<%= link_to "More details on user's goals:", user_goals_path(@user) %>
+
+<br><br>
 <% if logged_in? && @user.id == current_user.id %>
 <button class="btn"><%= link_to "Create a new goal", new_goal_path(@goal) %></button>
 <% end %>
