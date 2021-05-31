@@ -1,8 +1,10 @@
 <h1 class="general">BucketLister Statistics - for our curious achievers:</h1>
-<p class="general">Number of users:</p> <%= @users_count %>
-<p class="general">Number of categories:</p> <%= @categories_count %>
-<p class="general">Number of goals:</p> <%= @goals_count %>
-<p class="general">Number of comments:</p> <%= @comments_count %>
+<p class="general">Number of <%= link_to "users", users_path %>: <%= @users.count %></p>
+<p class="general">Number of <%= link_to "categories", categories_path %>: <%= @categories.count %></p>
+<p class="general">Number of <%= link_to "goals", goals_path %>: <%= @goals.count %></p>
+<p class="general">Number of achieved <%= link_to "goals", goals_path %>: <%= @goals.true_achieved.count %></p>
+<p class="general">Number of unachieved <%= link_to "goals", goals_path %>: <%= @goals.false_achieved.count %></p>
+<p class="general">Number of <%= link_to "comments", comments_path %>: <%= @comments.count %></p>
 
 <p class="general">Oldest goals set: </p>
 <ul><% @first_gs.each do | fg | %>
