@@ -13,17 +13,20 @@ class GoalsController < ApplicationController
         @categories = Category.all.order('name ASC')
         @goals = Goal.all
         #binding.pry
-        if !params[:category].blank?
-            #@goals = Goal.in_category(params[:category])
-            if !params[:achieved].blank?
-                if params[:achieved] == "Achieved"
+        if !params[:category].blank? && !params[:achieved].blank?
+            if params[:achieved] == "Achieved"
                 @goals = Goal.in_category(params[:category]).true_achieved
-                elsif params[:achieved] == "Not achieved yet"
+            elsif params[:achieved] == "Not achieved yet"
                 @goals = Goal.in_category(params[:category]).false_achieved
-                end
             end
-        else
-            @goals = Goal.all
+        elsif !params[:category].blank? && params[:achieved].blank?
+            @goals = Goal.in_category(params[:category])
+        elsif params[:category].blank? && !params[:achieved].blank?
+            if params[:achieved] == "Achieved"
+                @goals = Goal.true_achieved
+            elsif params[:achieved] == "Not achieved yet"
+                @goals = Goal.false_achieved
+            end
         end
     end
 
