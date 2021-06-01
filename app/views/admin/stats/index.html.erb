@@ -5,6 +5,8 @@
 <p class="general">Number of achieved <%= link_to "goals", goals_path %>: <%= @goals.true_achieved.count %></p>
 <p class="general">Number of unachieved <%= link_to "goals", goals_path %>: <%= @goals.false_achieved.count %></p>
 <p class="general">Number of <%= link_to "comments", comments_path %>: <%= @comments.count %></p>
+<p class="general">Goal with the most comments is <%= link_to "here", goal_path(Goal.goal_most_comments) %></p>
+<p class="general">Goal with the least comments is <%= link_to "here", goal_path(Goal.goal_least_comments) %></p>
 
 <p class="general">Oldest goals set: </p>
 <ul><% @first_gs.each do | fg | %>

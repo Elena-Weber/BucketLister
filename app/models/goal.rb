@@ -32,4 +32,12 @@ class Goal < ApplicationRecord
     where(category: category_id)
   end
 
+  def self.goal_most_comments
+    Goal.all.sort_by { |most| most.comments.size }.last
+  end
+
+  def self.goal_least_comments
+    Goal.all.sort_by { |least| least.comments.size }.first
+  end
+
 end
