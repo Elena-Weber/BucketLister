@@ -12,14 +12,6 @@ class Goal < ApplicationRecord
   scope :fulfilled, -> { where(achieved: true).order('RANDOM()').limit(5) }
   scope :unfulfilled, -> { where(achieved: false).order('RANDOM()').limit(5) }
 
-  # def self.true_achieved
-  #   where(achieved: true)
-  # end
-
-  # def self.false_achieved
-  #   where(achieved: false)
-  # end
-
   def self.first_goals
     all.limit(5)
   end
@@ -27,14 +19,6 @@ class Goal < ApplicationRecord
   def self.latest_goals
     all.order(id: :desc).limit(5)
   end
-
-  # def self.fulfilled
-  #   where(achieved: true).order('RANDOM()').limit(5)
-  # end
-
-  # def self.unfulfilled
-  #   where(achieved: false).order('RANDOM()').limit(5)
-  # end
 
   def self.fulfilled10
     where(achieved: true).order('RANDOM()').limit(10)
@@ -47,5 +31,5 @@ class Goal < ApplicationRecord
   def self.in_category(category_id)
     where(category: category_id)
   end
-  
+
 end

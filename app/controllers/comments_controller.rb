@@ -9,13 +9,9 @@ class CommentsController < ApplicationController
     end
 
     def show
-        #@comment = Comment.find(params[:id])
-        #@goal = Goal.find(params[:goal_id])
-        #binding.pry
     end
 
     def new
-        #binding.pry
         @goal = Goal.find(params[:goal_id])
         @comment = @goal.comments.build
     end
@@ -33,19 +29,14 @@ class CommentsController < ApplicationController
     end
 
     def edit
-        #@comment = Comment.find(params[:id])
-        #redirect_to goals_path unless logged_in? && @comment.user.id == current_user.id
     end
 
     def update
-        # @goal = Goal.find(params[:goal_id])
-        #@comment = Comment.find(params[:id])
         @comment.update(comment_params)
         redirect_to comment_path(@comment)
     end
 
     def destroy
-        #@comment = Comment.find(params[:id]).destroy
         @comment.destroy
         redirect_to goals_path
     end

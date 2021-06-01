@@ -3,12 +3,10 @@ get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 match '/auth/facebook/callback' => 'sessions#create', via:[:get, :post]
-#match '/auth/google_auth2/callback' => 'sessions#create', via:[:get, :post]
 
 root 'goals#welcome'
 get '/search' => 'goals#search', :as => 'goals_search'
   resources :goals
-  #post '/goals/new', to: 'goals#create'
   post '/comments/new', to: 'comments#create'
 
   resources :goals do

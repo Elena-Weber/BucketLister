@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        #@user = User.find_by_id(params[:id])
     end
 
     def new
@@ -26,21 +25,14 @@ class UsersController < ApplicationController
     end
 
     def edit
-        #binding.pry
-        #@user = User.find_by_id(params[:id])
-        # if @user(params[:id]) != current_user.id
-        #     redirect_to users_path
-        # end
     end
 
     def update
-        #@user = User.find_by_id(params[:id])
         @user.update(user_params)
         redirect_to user_path(@user)
     end
 
     def destroy
-        #@user = User.find_by_id(params[:id])
         @user.destroy
         redirect_to users_path
     end
