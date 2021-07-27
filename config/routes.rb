@@ -6,6 +6,7 @@ match '/auth/facebook/callback' => 'sessions#create', via:[:get, :post]
 
 root 'goals#welcome'
 get '/search' => 'goals#search', :as => 'goals_search'
+
   resources :goals
   post '/comments/new', to: 'comments#create'
 
