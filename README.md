@@ -1,5 +1,8 @@
 BucketLister is a motivational Ruby on Rails app where users set goals and achieve them.
 
+Video demo is here:
+https://youtu.be/3LAa_We8CC4
+
 Here is how it works: Users set their goals (everybody can see them) and comment on other users' goals thus motivating them. A user can add/edit/delete their goals that they want to achieve (hence BucketLister) and add/edit/delete comments under other users' goals. They must log in to be able to do any of these and cannot add/edit/delete other users' goals and comments.
 
 Installation
