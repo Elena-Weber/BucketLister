@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-    def new
+    def new # creating new user session
         @user = User.new
     end
 
-    def create
+    def create # authorizing and saving a user session
         if auth = request.env["omniauth.auth"]
             @user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.username = auth['info']['name']
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
         end
     end
 
-    def destroy
+    def destroy # deleting a session
         session.clear
         flash[:notice] = "You've successfully logged out."
         redirect_to login_path
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 
 private
 
-    def auth
+    def auth # user authorization
         request.env['omniauth.auth']
     end
 end

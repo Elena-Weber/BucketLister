@@ -1,9 +1,10 @@
 class GoalsController < ApplicationController
 
+    # what to do before displaying goals
     before_action :find_goal, only: [:show, :edit, :update, :destroy]
     before_action :authorized_goals, only: [:edit, :update, :destroy]
 
-    def index
+    def index # displaying goals with filtering
 
         @user = User.find_by_id(params[:user_id])
         @categories = Category.all.order('name ASC')
@@ -25,7 +26,7 @@ class GoalsController < ApplicationController
         end
     end
 
-    def search
+    def search # searching for a goal
         if params[:search].blank?  
             redirect_to(goals_path, alert: "Empty field!") #and return  
         else
@@ -37,16 +38,16 @@ class GoalsController < ApplicationController
         end
     end
 
-    def show
+    def show # display one goal
         @user = User.find_by_id(params[:user_id])
         @comment = Comment.find_by_id(params[:user_id])
     end
 
-    def new
+    def new # create new goal from form
         @goal = Goal.new
     end
 
-    def create
+    def create # saving new goal to db
         @goal = current_user.goals.build(goal_params)
         if @goal.save
             redirect_to user_goal_path(current_user, @goal)
@@ -58,32 +59,32 @@ class GoalsController < ApplicationController
     def edit
     end
 
-    def update
+    def update # editing a goal
         @goal.update(goal_params)
         redirect_to goal_path(@goal)
     end
 
-    def destroy
+    def destroy # deleting a goal
         @goal.destroy
         redirect_to goals_path
     end
 
-    def welcome
+    def welcome # variables for welcome page
         @ffg10 = Goal.fulfilled10
         @randomcomments = Comment.randcoms
     end
 
     private
 
-    def find_goal
+    def find_goal # finding a goal
         @goal = Goal.find(params[:id])
     end
 
-    def goal_params
+    def goal_params # what goal parameters are allowed
         params.require(:goal).permit(:content, :details, :achieved, :month, :user_id, :category_id)
     end
 
-    def authorized_goals
+    def authorized_goals # users only allowed to edit/delete their own goals
         redirect_to goals_path unless logged_in? && @goal.user.id == current_user.id
     end
 

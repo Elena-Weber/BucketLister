@@ -1,5 +1,6 @@
 class Admin::StatsController < ApplicationController
-    def index
+    # set variables for admin page
+    def index 
         @users = User.all
         @categories = Category.all
         @goals = Goal.all
